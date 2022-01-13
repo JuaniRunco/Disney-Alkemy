@@ -34,7 +34,7 @@ public class PeliculaEntity {
     @JoinColumn(name = "genero_id", insertable = false, updatable = false)
     private GeneroEntity genero;
 
-    //para guardar y actualizar donde realmente tengo el id
+    //para guardar y actualizar una pelicula donde realmente tengo el id en una columna
     @Column(name = "genero_id", nullable = false)
     private Long genero_id;
 
