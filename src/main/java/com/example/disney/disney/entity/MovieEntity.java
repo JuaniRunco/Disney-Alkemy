@@ -10,33 +10,33 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="pelicula")
+@Table(name="movie")
 @Getter
 @Setter
-public class PeliculaEntity {
+public class MovieEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String imagen;
+    private String image;
 
-    private String titulo;
+    private String title;
 
-    @Column(name = "fecha_creacion")
+    @Column(name = "creation_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaCreacion;
+    private LocalDate creationDate;
 
-    private int calificacion; //del 1 al 5
+    private Integer qualification; //del 1 al 5
 
     //para obtener toda la info, la cual va a traer un objeto del tipo continente
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "genero_id", insertable = false, updatable = false)
-    private GeneroEntity genero;
+    @JoinColumn(name = "genre_id", insertable = false, updatable = false)
+    private GenreEntity genre;
 
     //para guardar y actualizar una pelicula donde realmente tengo el id en una columna
-    @Column(name = "genero_id", nullable = false)
-    private Long genero_id;
+    @Column(name = "genre_id", nullable = false)
+    private Long genre_id;
 
     @ManyToMany(
             cascade = {
@@ -44,10 +44,10 @@ public class PeliculaEntity {
                     CascadeType.MERGE
             })
     @JoinTable(
-            name = "personaje_pelicula",
-            joinColumns = @JoinColumn(name = "pelicula_id"),
-            inverseJoinColumns = @JoinColumn(name = "personaje_id"))
-    private Set<PersonajeEntity> personajes= new HashSet<>();
+            name = "character_movie",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "character_id"))
+    private Set<CharacterEntity> characters= new HashSet<>();
 
     @Override
     public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public class PeliculaEntity {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final PeliculaEntity other = (PeliculaEntity) obj;
+        final MovieEntity other = (MovieEntity) obj;
         return other.id == this.id;
     }
 
