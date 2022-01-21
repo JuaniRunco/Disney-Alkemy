@@ -1,18 +1,25 @@
 package com.example.disney.disney.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
+@Data
 @Entity
-@Table(name="movie")
+@Table(name = "movie")
 @Getter
 @Setter
+@SQLDelete(sql = "UPDATE movie SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class MovieEntity {
 
     @Id
@@ -29,15 +36,22 @@ public class MovieEntity {
 
     private Integer qualification; //del 1 al 5
 
+    private boolean deleted = Boolean.FALSE;
+
     //para obtener toda la info, la cual va a traer un objeto del tipo continente
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private GenreEntity genre;
 
     //para guardar y actualizar una pelicula donde realmente tengo el id en una columna
     @Column(name = "genre_id", nullable = false)
-    private Long genre_id;
+    private Long genreId;
 
+    //@ToString.Exclude
     @ManyToMany(
             cascade = {
                     CascadeType.PERSIST,
@@ -47,7 +61,12 @@ public class MovieEntity {
             name = "character_movie",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "character_id"))
-    private Set<CharacterEntity> characters= new HashSet<>();
+    private Set<CharacterEntity> characters = new HashSet<>();
+
+    /*@Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }*/
 
     @Override
     public boolean equals(Object obj) {

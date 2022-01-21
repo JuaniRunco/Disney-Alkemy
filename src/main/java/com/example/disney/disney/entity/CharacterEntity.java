@@ -1,16 +1,21 @@
 package com.example.disney.disney.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "personage")
 @Getter
 @Setter
+@SQLDelete(sql = "UPDATE personage SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 public class CharacterEntity {
 
     @Id
@@ -27,7 +32,38 @@ public class CharacterEntity {
 
     private String history;
 
-    @ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
-    private List<MovieEntity> movies= new ArrayList<>();
-    
+    private boolean deleted = Boolean.FALSE;
+
+    @ManyToMany(mappedBy = "characters",
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    private List<MovieEntity> movies = new ArrayList<>();
+
+    public void addMovie(MovieEntity movie) {
+        this.movies.add(movie);
+    }
+
+    public void removeMovie(MovieEntity movie) {
+        this.movies.remove(movie);
+    }
+
+   /* @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        CharacterEntity other = (CharacterEntity) obj;
+        return Objects.equals(id, other.id);
+    }*/
+
 }
