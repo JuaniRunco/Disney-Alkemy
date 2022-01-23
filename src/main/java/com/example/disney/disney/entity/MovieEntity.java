@@ -8,7 +8,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -66,7 +65,7 @@ public class MovieEntity {
     /*@Override
     public int hashCode() {
         return Objects.hash(id);
-    }*/
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -76,6 +75,6 @@ public class MovieEntity {
             return false;
         final MovieEntity other = (MovieEntity) obj;
         return other.id == this.id;
-    }
+    }*/
 
 }

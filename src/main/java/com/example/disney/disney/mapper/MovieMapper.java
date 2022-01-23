@@ -1,8 +1,8 @@
 package com.example.disney.disney.mapper;
 
-import com.example.disney.disney.dto.CharacterDTO;
-import com.example.disney.disney.dto.MovieBasicDTO;
-import com.example.disney.disney.dto.MovieDTO;
+import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
+import com.example.disney.disney.mapper.repository.dto.BasicDTO.MovieBasicDTO;
+import com.example.disney.disney.mapper.repository.dto.MovieDTO;
 import com.example.disney.disney.entity.CharacterEntity;
 import com.example.disney.disney.entity.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +66,7 @@ public class MovieMapper {
         MovieBasicDTO basicDTO;
         for (MovieEntity entity: entities) {
             basicDTO= new MovieBasicDTO();
-            basicDTO.setId(entity.getId());
+            //basicDTO.setId(entity.getId());
             basicDTO.setCreationDate(entity.getCreationDate().toString());
             basicDTO.setImage(entity.getImage());
             basicDTO.setTitle(entity.getTitle());

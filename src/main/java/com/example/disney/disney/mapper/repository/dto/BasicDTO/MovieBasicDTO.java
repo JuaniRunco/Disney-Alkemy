@@ -1,4 +1,4 @@
-package com.example.disney.disney.dto;
+package com.example.disney.disney.mapper.repository.dto.BasicDTO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class MovieBasicDTO {
 
-    private Long id;
     private String image;
     private String title;
     private String creationDate;

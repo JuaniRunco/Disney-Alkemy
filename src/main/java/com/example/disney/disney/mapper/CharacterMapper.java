@@ -1,8 +1,8 @@
 package com.example.disney.disney.mapper;
 
-import com.example.disney.disney.dto.CharacterBasicDTO;
-import com.example.disney.disney.dto.CharacterDTO;
-import com.example.disney.disney.dto.MovieDTO;
+import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
+import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
+import com.example.disney.disney.mapper.repository.dto.MovieDTO;
 import com.example.disney.disney.entity.CharacterEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.*;
 @Component
 public class CharacterMapper {
 
-    //@Autowired
+    @Autowired
     private MovieMapper movieMapper;
 
     public CharacterEntity characterDTO2Entity(CharacterDTO dto) {
@@ -70,7 +70,7 @@ public class CharacterMapper {
     }
 
 
-    public List<CharacterBasicDTO> characterEntityList2BasicDtoList(List<CharacterEntity> entities) { //TODO: Collection o List?
+    public List<CharacterBasicDTO> characterEntityList2BasicDtoList(List<CharacterEntity> entities) {
         List<CharacterBasicDTO> dtos = new ArrayList<>();
         CharacterBasicDTO basicDTO;
         for (CharacterEntity entity : entities) {

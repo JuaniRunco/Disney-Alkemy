@@ -1,4 +1,4 @@
-package com.example.disney.disney.repository;
+package com.example.disney.disney.mapper.repository;
 
 import com.example.disney.disney.entity.GenreEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,11 +1,12 @@
 package com.example.disney.disney.service.Impl;
 
-import com.example.disney.disney.dto.CharacterDTO;
-import com.example.disney.disney.dto.MovieBasicDTO;
-import com.example.disney.disney.dto.MovieDTO;
+import com.example.disney.disney.mapper.repository.dto.BasicDTO.MovieBasicDTO;
+import com.example.disney.disney.mapper.repository.dto.FiltersDTO.MovieFiltersDTO;
+import com.example.disney.disney.mapper.repository.dto.MovieDTO;
 import com.example.disney.disney.entity.MovieEntity;
 import com.example.disney.disney.mapper.MovieMapper;
-import com.example.disney.disney.repository.MovieRepository;
+import com.example.disney.disney.mapper.repository.MovieRepository;
+import com.example.disney.disney.mapper.repository.specifications.MovieSpecification;
 import com.example.disney.disney.service.MovieService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +14,24 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class MovieServiceImpl implements MovieService {
 
-    @Autowired
     private MovieMapper movieMapper;
+    private MovieRepository movieRepository;
+    private MovieSpecification movieSpecification;
 
     @Autowired
-    private MovieRepository movieRepository;
+    public MovieServiceImpl(
+            MovieMapper movieMapper,
+            MovieRepository movieRepository,
+            MovieSpecification movieSpecification){
+        this.movieMapper=movieMapper;
+        this.movieRepository=movieRepository;
+        this.movieSpecification=movieSpecification;
+    }
 
     public MovieDTO save(MovieDTO dto) {
         MovieEntity entity= this.movieMapper.movieDTO2Entity(dto);
@@ -37,7 +47,7 @@ public class MovieServiceImpl implements MovieService {
 
     public MovieDTO getMovieById(Long id) throws NotFoundException {
         MovieEntity entity= movieRepository.findById(id).orElseThrow(()->new NotFoundException("The movie with that id was not found"));
-        return movieMapper.movieEntity2DTO(entity,true); //TODO: ESTE TRAE LOS PERSONAJES ASOCIADOS
+        return movieMapper.movieEntity2DTO(entity,true);
     }
 
 
@@ -52,9 +62,18 @@ public class MovieServiceImpl implements MovieService {
         return result;
     }
 
+    public List<MovieDTO> getByFilters(String title, Set<Long> genres,String date ,String order) {
+        MovieFiltersDTO filtersDTO= new MovieFiltersDTO(title,genres,date,order);
+        List<MovieEntity> entities= this.movieRepository.findAll(this.movieSpecification.getByFilters(filtersDTO));
+        List<MovieDTO> dtos= this.movieMapper.movieEntityList2DTOList(entities,true);
+        return dtos;
+    }
+
 
     public void delete(Long id) {
         this.movieRepository.deleteById(id);
     }
+
+
 
 }

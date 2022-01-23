@@ -1,14 +1,10 @@
 package com.example.disney.disney;
 
-import com.example.disney.disney.entity.CharacterEntity;
-import com.example.disney.disney.entity.MovieEntity;
-import com.example.disney.disney.repository.MovieRepository;
+import com.example.disney.disney.mapper.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.time.LocalDate;
 
 @SpringBootApplication
 public class DisneyApplication implements CommandLineRunner {

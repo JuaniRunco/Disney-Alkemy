@@ -1,7 +1,5 @@
-package com.example.disney.disney.dto;
+package com.example.disney.disney.mapper.repository.dto;
 
-//import io.swagger.v3.oas.annotations.media.ArraySchema;
-//import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 

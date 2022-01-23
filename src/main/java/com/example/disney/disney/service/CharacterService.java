@@ -1,9 +1,10 @@
 package com.example.disney.disney.service;
 
-import com.example.disney.disney.dto.CharacterBasicDTO;
-import com.example.disney.disney.dto.CharacterDTO;
+import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
+import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
 import javassist.NotFoundException;
 import java.util.List;
+import java.util.Set;
 
 public interface CharacterService {
 
@@ -16,4 +17,6 @@ public interface CharacterService {
     CharacterDTO update(Long id, CharacterDTO dto) throws NotFoundException;
 
     void delete(Long id);
+
+    List<CharacterBasicDTO> getByFilters(String name, Integer age, Long weight, Set<Long> movies);
 }
