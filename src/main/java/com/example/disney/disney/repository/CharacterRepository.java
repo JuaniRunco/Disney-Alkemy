@@ -1,4 +1,4 @@
-package com.example.disney.disney.mapper.repository;
+package com.example.disney.disney.repository;
 
 import com.example.disney.disney.entity.CharacterEntity;
 import org.springframework.data.jpa.domain.Specification;

@@ -1,6 +1,6 @@
 package com.example.disney.disney.controller;
 
-import com.example.disney.disney.mapper.repository.dto.GenreDTO;
+import com.example.disney.disney.dto.GenreDTO;
 import com.example.disney.disney.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

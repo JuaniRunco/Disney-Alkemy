@@ -1,12 +1,12 @@
 package com.example.disney.disney.service.Impl;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
-import com.example.disney.disney.mapper.repository.dto.FiltersDTO.CharacterFiltersDTO;
+import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
+import com.example.disney.disney.dto.CharacterDTO;
+import com.example.disney.disney.dto.FiltersDTO.CharacterFiltersDTO;
 import com.example.disney.disney.entity.CharacterEntity;
 import com.example.disney.disney.mapper.CharacterMapper;
-import com.example.disney.disney.mapper.repository.CharacterRepository;
-import com.example.disney.disney.mapper.repository.specifications.CharacterSpecification;
+import com.example.disney.disney.repository.CharacterRepository;
+import com.example.disney.disney.repository.specifications.CharacterSpecification;
 import com.example.disney.disney.service.CharacterService;
 
 import com.example.disney.disney.service.MovieService;

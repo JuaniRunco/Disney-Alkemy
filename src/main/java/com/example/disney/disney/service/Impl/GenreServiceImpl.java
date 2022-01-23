@@ -1,9 +1,9 @@
 package com.example.disney.disney.service.Impl;
 
-import com.example.disney.disney.mapper.repository.dto.GenreDTO;
+import com.example.disney.disney.dto.GenreDTO;
 import com.example.disney.disney.entity.GenreEntity;
 import com.example.disney.disney.mapper.GenreMapper;
-import com.example.disney.disney.mapper.repository.GenreRepository;
+import com.example.disney.disney.repository.GenreRepository;
 import com.example.disney.disney.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.example.disney.disney.mapper;
 
-import com.example.disney.disney.mapper.repository.dto.GenreDTO;
+import com.example.disney.disney.dto.GenreDTO;
 import com.example.disney.disney.entity.GenreEntity;
 import org.springframework.stereotype.Component;
 

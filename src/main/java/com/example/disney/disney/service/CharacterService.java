@@ -1,7 +1,7 @@
 package com.example.disney.disney.service;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
+import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
+import com.example.disney.disney.dto.CharacterDTO;
 import javassist.NotFoundException;
 import java.util.List;
 import java.util.Set;

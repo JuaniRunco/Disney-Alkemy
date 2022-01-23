@@ -1,12 +1,12 @@
 package com.example.disney.disney.service.Impl;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.MovieBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.FiltersDTO.MovieFiltersDTO;
-import com.example.disney.disney.mapper.repository.dto.MovieDTO;
+import com.example.disney.disney.dto.BasicDTO.MovieBasicDTO;
+import com.example.disney.disney.dto.FiltersDTO.MovieFiltersDTO;
+import com.example.disney.disney.dto.MovieDTO;
 import com.example.disney.disney.entity.MovieEntity;
 import com.example.disney.disney.mapper.MovieMapper;
-import com.example.disney.disney.mapper.repository.MovieRepository;
-import com.example.disney.disney.mapper.repository.specifications.MovieSpecification;
+import com.example.disney.disney.repository.MovieRepository;
+import com.example.disney.disney.repository.specifications.MovieSpecification;
 import com.example.disney.disney.service.MovieService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

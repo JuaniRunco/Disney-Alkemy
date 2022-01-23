@@ -1,8 +1,8 @@
 package com.example.disney.disney.mapper;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
-import com.example.disney.disney.mapper.repository.dto.MovieDTO;
+import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
+import com.example.disney.disney.dto.CharacterDTO;
+import com.example.disney.disney.dto.MovieDTO;
 import com.example.disney.disney.entity.CharacterEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

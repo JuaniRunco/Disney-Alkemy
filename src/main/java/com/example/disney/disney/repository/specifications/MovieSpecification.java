@@ -1,6 +1,6 @@
-package com.example.disney.disney.mapper.repository.specifications;
+package com.example.disney.disney.repository.specifications;
 
-import com.example.disney.disney.mapper.repository.dto.FiltersDTO.MovieFiltersDTO;
+import com.example.disney.disney.dto.FiltersDTO.MovieFiltersDTO;
 import com.example.disney.disney.entity.GenreEntity;
 import com.example.disney.disney.entity.MovieEntity;
 import org.springframework.data.jpa.domain.Specification;

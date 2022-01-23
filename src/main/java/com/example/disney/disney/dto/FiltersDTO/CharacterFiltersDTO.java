@@ -1,4 +1,4 @@
-package com.example.disney.disney.mapper.repository.dto.FiltersDTO;
+package com.example.disney.disney.dto.FiltersDTO;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package com.example.disney.disney.controller;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.CharacterBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.CharacterDTO;
+import com.example.disney.disney.dto.CharacterDTO;
+import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
 import com.example.disney.disney.service.CharacterService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

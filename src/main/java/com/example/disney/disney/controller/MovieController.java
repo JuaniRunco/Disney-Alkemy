@@ -1,7 +1,7 @@
 package com.example.disney.disney.controller;
 
-import com.example.disney.disney.mapper.repository.dto.BasicDTO.MovieBasicDTO;
-import com.example.disney.disney.mapper.repository.dto.MovieDTO;
+import com.example.disney.disney.dto.MovieDTO;
+import com.example.disney.disney.dto.BasicDTO.MovieBasicDTO;
 import com.example.disney.disney.service.MovieService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
