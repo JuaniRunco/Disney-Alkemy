@@ -22,27 +22,19 @@ import java.util.Set;
 @Service
 public class CharacterServiceImpl implements CharacterService {
 
-
+    @Autowired
     private CharacterMapper characterMapper;
+    @Autowired
     private CharacterRepository characterRepository;
+    @Autowired
     private MovieService movieService;
+    @Autowired
     private CharacterSpecification characterSpecification;
 
-    @Autowired
-    public CharacterServiceImpl(
-            CharacterMapper characterMapper,
-            CharacterRepository characterRepository,
-            MovieService movieService,
-            CharacterSpecification characterSpecification) {
-        this.characterMapper = characterMapper;
-        this.characterRepository = characterRepository;
-        this.movieService= movieService;
-        this.characterSpecification=characterSpecification;
-    }
-
-    public CharacterDTO save(CharacterDTO dto) {
+    public CharacterDTO save(CharacterDTO dto,Long idMovie) {
         CharacterEntity entity = characterMapper.characterDTO2Entity(dto);
         CharacterEntity entitySaved = characterRepository.save(entity);
+        movieService.addCharacter(idMovie,entitySaved);
         CharacterDTO result = characterMapper.characterEntity2DTO(entitySaved, true);
         return result;
     }
@@ -76,6 +68,10 @@ public class CharacterServiceImpl implements CharacterService {
         List<CharacterEntity> entities = this.characterRepository.findAll(this.characterSpecification.getByFilters(filtersDTO));
         List<CharacterBasicDTO> dtos = this.characterMapper.characterEntityList2BasicDtoList(entities);
         return dtos;
+    }
+
+    public CharacterEntity getEntityById(Long id) {
+        return characterRepository.getById(id);
     }
 
     public void delete(Long id) {

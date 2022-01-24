@@ -13,45 +13,40 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
 public class MovieSpecification {
 
-    public Specification<MovieEntity> getByFilters(MovieFiltersDTO filtersDTO){
-        return (root,query,criteriaBuilder)->{
+    public Specification<MovieEntity> getByFilters(MovieFiltersDTO filtersDTO) {
+        return (root, query, criteriaBuilder) -> {
 
-            List<Predicate> predicates=new ArrayList<>();
+            List<Predicate> predicates = new ArrayList<>();
 
-            if (StringUtils.hasLength(filtersDTO.getTitle())){
+            if (StringUtils.hasLength(filtersDTO.getTitle())) {
                 predicates.add(
                         criteriaBuilder.like(
                                 criteriaBuilder.lower(root.get("title")),
-                                "%" + filtersDTO.getTitle().toLowerCase()+"%"
+                                "%" + filtersDTO.getTitle().toLowerCase() + "%"
                         )
                 );
             }
 
-            if (!CollectionUtils.isEmpty(filtersDTO.getGenres())){
-                Join<GenreEntity,MovieEntity> join=root.join("genre",JoinType.INNER);
-                Expression<String> genresID=join.get("id");
-                predicates.add(genresID.in(filtersDTO.getGenres()));
-            }
-
-            if (StringUtils.hasLength(filtersDTO.getDate())){
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                LocalDate date= LocalDate.parse(filtersDTO.getDate(),formatter);
-
+            if (filtersDTO.getGenre() != null) {
                 predicates.add(
-                        criteriaBuilder.equal(root.<LocalDate>get("creationDate"),date)
+                        criteriaBuilder.like(
+                                root.get("genreId").as(String.class),
+                                "%" + filtersDTO.getGenre() + "%"
+                        )
                 );
             }
 
             //Remove duplicates
             query.distinct(true);
 
-            String orderByField="creationDate";
+            String orderByField = "creationDate";
             query.orderBy(
                     filtersDTO.isASC() ?
-                            criteriaBuilder.asc(root.get(orderByField)):
+                            criteriaBuilder.asc(root.get(orderByField)) :
                             criteriaBuilder.desc(root.get(orderByField))
             );
 

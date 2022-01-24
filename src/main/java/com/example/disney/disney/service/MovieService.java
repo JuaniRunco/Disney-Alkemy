@@ -2,6 +2,7 @@ package com.example.disney.disney.service;
 
 import com.example.disney.disney.dto.BasicDTO.MovieBasicDTO;
 import com.example.disney.disney.dto.MovieDTO;
+import com.example.disney.disney.entity.CharacterEntity;
 import javassist.NotFoundException;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public interface MovieService {
 
     void delete(Long id);
 
-    List<MovieDTO> getByFilters(String title, Set<Long> genres,String date,String order);
+    List<MovieBasicDTO> getByFilters(String title, Long genre,String order);
+
+    void addCharacter(Long idMovie, CharacterEntity entity);
+
+    void addCharacterList(Long idMovie, Set<Long> charactersId);
 }

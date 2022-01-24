@@ -37,7 +37,7 @@ public class MovieEntity {
 
     private boolean deleted = Boolean.FALSE;
 
-    //para obtener toda la info, la cual va a traer un objeto del tipo continente
+    //para obtener toda la info, la cual va a traer un objeto del tipo Genero
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.PERSIST,

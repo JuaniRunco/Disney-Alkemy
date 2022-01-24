@@ -10,14 +10,12 @@ import java.util.Set;
 public class MovieFiltersDTO {
 
     private String title;
-    private Set<Long> genres;
-    private String date;
+    private Long genre;
     private String order;
 
-    public MovieFiltersDTO(String title, Set<Long> genres,String date, String order) {
+    public MovieFiltersDTO(String title,Long genre, String order) {
         this.title = title;
-        this.genres = genres;
-        this.date=date;
+        this.genre=genre;
         this.order = order;
     }
 
@@ -25,7 +23,7 @@ public class MovieFiltersDTO {
         return this.order.compareToIgnoreCase("ASC") == 0;
     }
 
-    public boolean isDESC() {
+    /*public boolean isDESC() {
         return this.order.compareToIgnoreCase("DESC") == 0;
-    }
+    }*/
 }
