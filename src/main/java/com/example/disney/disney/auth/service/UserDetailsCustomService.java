@@ -3,6 +3,7 @@ package com.example.disney.disney.auth.service;
 import com.example.disney.disney.auth.dto.UserDTO;
 import com.example.disney.disney.auth.entity.UserEntity;
 import com.example.disney.disney.auth.repository.UserRepository;
+import com.example.disney.disney.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +18,8 @@ public class UserDetailsCustomService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-   /* @Autowired
-    private EmailService emailService;*/
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -36,9 +37,10 @@ public class UserDetailsCustomService implements UserDetailsService {
         userEntity.setPassword(userDTO.getPassword());
         userEntity = this.userRepository.save(userEntity);
 
-        /*if (userEntity != null) {
+        if (userEntity != null) {
             emailService.sendWelcomeEmailTo(userEntity.getUsername());
-        }*/
+
+        }
         return userEntity != null;
     }
 }
