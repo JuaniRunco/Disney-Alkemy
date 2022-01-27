@@ -4,13 +4,13 @@ import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
 import com.example.disney.disney.dto.CharacterDTO;
 import com.example.disney.disney.dto.FiltersDTO.CharacterFiltersDTO;
 import com.example.disney.disney.entity.CharacterEntity;
+import com.example.disney.disney.exception.ParamNotFound;
 import com.example.disney.disney.mapper.CharacterMapper;
 import com.example.disney.disney.repository.CharacterRepository;
 import com.example.disney.disney.repository.specifications.CharacterSpecification;
 import com.example.disney.disney.service.CharacterService;
 
 import com.example.disney.disney.service.MovieService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -34,7 +34,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO save(CharacterDTO dto,Long idMovie) {
         CharacterEntity entity = characterMapper.characterDTO2Entity(dto);
         CharacterEntity entitySaved = characterRepository.save(entity);
-        movieService.addCharacter(idMovie,entitySaved);
+        movieService.addCharacter(idMovie,entitySaved.getId());
         CharacterDTO result = characterMapper.characterEntity2DTO(entitySaved, true);
         return result;
     }
@@ -47,15 +47,35 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     //Para encontrar un solo personaje con /characters/id
-    public CharacterDTO getCharacterById(Long id) throws NotFoundException {
-        CharacterEntity entity = characterRepository.findById(id).orElseThrow(() -> new NotFoundException("The character with that id was not found"));
-        return characterMapper.characterEntity2DTO(entity, true);
+    public CharacterDTO getCharacterById(Long id) {
+        Optional<CharacterEntity> entity = characterRepository.findById(id);
+        if (!entity.isPresent()){
+            throw new ParamNotFound("Character id not found");
+        }
+        return characterMapper.characterEntity2DTO(entity.get(), true);
     }
 
-    public CharacterDTO update(Long id, CharacterDTO dto) throws NotFoundException {
+    public List<CharacterBasicDTO> getByFilters(String name, Integer age, Long weight, Set<Long> movies) {
+        CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age, weight, movies);
+        List<CharacterEntity> entities = this.characterRepository.findAll(this.characterSpecification.getByFilters(filtersDTO));
+        if (entities.isEmpty()){
+            throw new ParamNotFound("No character found with the indicated parameters");
+        }
+        List<CharacterBasicDTO> dtos = this.characterMapper.characterEntityList2BasicDtoList(entities);
+        return dtos;
+    }
+
+    public CharacterEntity getEntityById(Long id) {
+        if (!characterRepository.existsById(id)){
+            throw new ParamNotFound("Character id not found");
+        }
+        return characterRepository.getById(id);
+    }
+
+    public CharacterDTO update(Long id, CharacterDTO dto) {
         Optional<CharacterEntity> entity = this.characterRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new NotFoundException("This id was not found ");
+            throw new ParamNotFound("Character id not found");
         }
         this.characterMapper.characterEntityRefreshValues(entity.get(), dto);
         CharacterEntity entitySaved = this.characterRepository.save(entity.get());
@@ -63,22 +83,12 @@ public class CharacterServiceImpl implements CharacterService {
         return result;
     }
 
-    public List<CharacterBasicDTO> getByFilters(String name, Integer age, Long weight, Set<Long> movies) {
-        CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age, weight, movies);
-        List<CharacterEntity> entities = this.characterRepository.findAll(this.characterSpecification.getByFilters(filtersDTO));
-        List<CharacterBasicDTO> dtos = this.characterMapper.characterEntityList2BasicDtoList(entities);
-        return dtos;
-    }
-
-    public CharacterEntity getEntityById(Long id) {
-        return characterRepository.getById(id);
-    }
-
     public void delete(Long id) {
+        if (!characterRepository.existsById(id)){
+            throw new ParamNotFound("Character id not found");
+        }
         this.characterRepository.deleteById(id);
     }
-
-
 
     /*public void addMovie (Long id, Long idMovie){
         CharacterEntity entity = this.characterRepository.getById(id);

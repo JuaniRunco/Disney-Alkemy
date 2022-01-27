@@ -5,12 +5,12 @@ import com.example.disney.disney.dto.FiltersDTO.MovieFiltersDTO;
 import com.example.disney.disney.dto.MovieDTO;
 import com.example.disney.disney.entity.CharacterEntity;
 import com.example.disney.disney.entity.MovieEntity;
+import com.example.disney.disney.exception.ParamNotFound;
 import com.example.disney.disney.mapper.MovieMapper;
 import com.example.disney.disney.repository.MovieRepository;
 import com.example.disney.disney.repository.specifications.MovieSpecification;
 import com.example.disney.disney.service.CharacterService;
 import com.example.disney.disney.service.MovieService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,30 +44,39 @@ public class MovieServiceImpl implements MovieService {
     }
 
     //Para encontrar una movie con /movies/id
-    public MovieDTO getMovieById(Long id) throws NotFoundException {
-        MovieEntity entity = movieRepository.findById(id).orElseThrow(() -> new NotFoundException("The movie with that id was not found"));
-        return movieMapper.movieEntity2DTO(entity, true);
+    public MovieDTO getMovieById(Long id) {
+        Optional<MovieEntity> entity = movieRepository.findById(id);
+        if (!entity.isPresent()) {
+            throw new ParamNotFound("Movie id not found");
+        }
+        return movieMapper.movieEntity2DTO(entity.get(), true);
     }
 
     //Para encontrar una movieEntity
     public MovieEntity getEntityById(Long id) {
-        MovieEntity entity = movieRepository.getById(id);
-        return entity;
+        Optional<MovieEntity> entity = movieRepository.findById(id);
+        if (!entity.isPresent()) {
+            throw new ParamNotFound("Movie id not found");
+        }
+        return entity.get();
     }
 
     //Para filtrar la movie por title, genre y ordenarla por creationDate
     public List<MovieBasicDTO> getByFilters(String title, Long genre, String order) {
         MovieFiltersDTO filtersDTO = new MovieFiltersDTO(title, genre, order);
         List<MovieEntity> entities = this.movieRepository.findAll(this.movieSpecification.getByFilters(filtersDTO));
+        if (entities.isEmpty()){
+                throw new ParamNotFound("No movie found with the indicated parameters");
+         }
         List<MovieBasicDTO> dtos = this.movieMapper.movieEntityList2BasicDTOList(entities);
         return dtos;
     }
 
     //Para actualizar una movieDTO por su id
-    public MovieDTO update(Long id, MovieDTO dto) throws NotFoundException {
+    public MovieDTO update(Long id, MovieDTO dto) {
         Optional<MovieEntity> entity = this.movieRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new NotFoundException("This id was not found ");
+            throw new ParamNotFound("Movie id not found");
         }
         this.movieMapper.movieEntityRefreshValues(entity.get(), dto);
         MovieEntity entitySaved = this.movieRepository.save(entity.get());
@@ -76,15 +85,32 @@ public class MovieServiceImpl implements MovieService {
     }
 
     //Para agregar un character a una Movie
-    public void addCharacter(Long idMovie, CharacterEntity entity) {
+    public void addCharacter(Long idMovie, Long idCharacter) {
         MovieEntity movie = getEntityById(idMovie);
         Set<CharacterEntity> entities = movie.getCharacters();
-        entities.add(entity);
+        entities.add(characterService.getEntityById(idCharacter));
         movie.setCharacters(entities);
         movieRepository.save(movie);
     }
 
-    //Para agregar una lista de characters a una movie
+    //Para eliminar un character a una Movie
+    public void removeCharacter(Long idMovie, Long idCharacter){
+        MovieEntity movie= getEntityById(idMovie);
+        Set<CharacterEntity> entities=movie.getCharacters();
+        entities.remove(characterService.getEntityById(idCharacter));
+        movie.setCharacters(entities);
+        movieRepository.save(movie);
+    }
+
+    //Para borrar la movie
+    public void delete(Long id) {
+        if (!movieRepository.existsById(id)) {
+            throw new ParamNotFound("Movie id not found");
+        }
+        this.movieRepository.deleteById(id);
+    }
+
+  /*  //Para agregar una lista de characters a una movie
     public void addCharacterList(Long idMovie, Set<Long> charactersId) {
         MovieEntity entity = getEntityById(idMovie);
         Set<CharacterEntity> movieCharacters = entity.getCharacters();
@@ -93,12 +119,6 @@ public class MovieServiceImpl implements MovieService {
         }
         entity.setCharacters(movieCharacters);
         movieRepository.save(entity);
-    }
-
-    //Para borrar la movie
-    public void delete(Long id) {
-        this.movieRepository.deleteById(id);
-    }
-
+    }*/
 
 }

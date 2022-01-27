@@ -13,9 +13,9 @@ public interface CharacterService {
 
     List<CharacterBasicDTO> getAllCharacterBasic();
 
-    CharacterDTO getCharacterById(Long id) throws NotFoundException;
+    CharacterDTO getCharacterById(Long id);
 
-    CharacterDTO update(Long id, CharacterDTO dto) throws NotFoundException;
+    CharacterDTO update(Long id, CharacterDTO dto);
 
     void delete(Long id);
 

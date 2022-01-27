@@ -17,7 +17,6 @@ public class CharacterMapper {
 
     public CharacterEntity characterDTO2Entity(CharacterDTO dto) {
         CharacterEntity characterEntity = new CharacterEntity();
-        //if (dto.getId()!=null) characterEntity.setId(dto.getId());
         characterEntity.setName(dto.getName());
         characterEntity.setImage(dto.getImage());
         characterEntity.setAge(dto.getAge());

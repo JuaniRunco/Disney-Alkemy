@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/movies")
@@ -46,25 +45,14 @@ public class MovieController {
 
     //Update by movie id
     @PutMapping("/{id}")
-    public ResponseEntity<MovieDTO> update(@PathVariable Long id, @RequestBody MovieDTO dto) throws NotFoundException {
+    public ResponseEntity<MovieDTO> update(@PathVariable Long id, @RequestBody MovieDTO dto) {
         MovieDTO result=this.movieService.update(id,dto);
         return ResponseEntity.ok().body(result);
     }
 
-    //Crear movie con un personaje y asignarle otro ya creado
-    @PostMapping("/withcharacters")
-    public ResponseEntity<MovieDTO> saveWithExistentCharacters(
-            @RequestParam(required = false)Set<Long> charactersId,
-            @RequestBody MovieDTO movieDTO
-    ) {
-        MovieDTO movie = movieService.save(movieDTO);
-        movieService.addCharacterList(movie.getId(), charactersId);
-        return ResponseEntity.status(HttpStatus.CREATED).body(movie);
-    }
-
     //Delete by movie id
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) throws NotFoundException {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         if (movieService.getMovieById(id)==null){
             return ResponseEntity.notFound().build();
         } else {
@@ -73,6 +61,17 @@ public class MovieController {
         }
     }
 
-    //TODO: Si hay tiempo agregar Post de pelicula con endpoint /movies/id/character/idCharacter
+    //Add character to movie
+    @PostMapping("/{idMovie}/character/{idCharacter}")
+    public ResponseEntity<MovieDTO> addCharacterToMovie(@PathVariable Long idMovie, @PathVariable Long idCharacter) {
+        movieService.addCharacter(idMovie,idCharacter);
+        return ResponseEntity.ok().body(movieService.getMovieById(idMovie));
+    }
 
+    //Remove character to movie
+    @DeleteMapping("/{idMovie}/character/{idCharacter}")
+    public ResponseEntity<MovieDTO> removeCharacterToMovie(@PathVariable Long idMovie, @PathVariable Long idCharacter){
+        movieService.removeCharacter(idMovie,idCharacter);
+        return ResponseEntity.ok().body(movieService.getMovieById(idMovie));
+    }
 }

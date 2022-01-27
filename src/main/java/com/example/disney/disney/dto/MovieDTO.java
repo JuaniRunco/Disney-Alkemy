@@ -33,7 +33,4 @@ public class MovieDTO {
 
     private List<CharacterDTO> characters;
 
-    //@ArraySchema(schema=@Schema( accessMode = Schema.AccessMode.READ_WRITE))
-    //private List<Long> characterId;
-
 }

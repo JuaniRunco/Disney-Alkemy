@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "personage")
@@ -39,18 +40,10 @@ public class CharacterEntity {
             })
     private List<MovieEntity> movies = new ArrayList<>();
 
-    public void addMovie(MovieEntity movie) {
-        this.movies.add(movie);
-    }
-
-    public void removeMovie(MovieEntity movie) {
-        this.movies.remove(movie);
-    }
-
    /* @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    }*/
 
     @Override
     public boolean equals(Object obj) {
@@ -62,6 +55,6 @@ public class CharacterEntity {
             return false;
         CharacterEntity other = (CharacterEntity) obj;
         return Objects.equals(id, other.id);
-    }*/
+    }
 
 }

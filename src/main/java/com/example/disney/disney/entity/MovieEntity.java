@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "movie")
 @Getter
@@ -18,7 +17,6 @@ import java.util.Set;
 @SQLDelete(sql = "UPDATE movie SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 @RequiredArgsConstructor
-@AllArgsConstructor
 public class MovieEntity {
 
     @Id
@@ -62,10 +60,18 @@ public class MovieEntity {
             inverseJoinColumns = @JoinColumn(name = "character_id"))
     private Set<CharacterEntity> characters = new HashSet<>();
 
+    public void addCharacter(CharacterEntity entity) {
+        this.characters.add(entity);
+    }
+
+    public void removeCharacter(CharacterEntity entity) {
+        this.characters.remove(entity);
+    }
+
     /*@Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    }*/
 
     @Override
     public boolean equals(Object obj) {
@@ -75,6 +81,6 @@ public class MovieEntity {
             return false;
         final MovieEntity other = (MovieEntity) obj;
         return other.id == this.id;
-    }*/
+    }
 
 }

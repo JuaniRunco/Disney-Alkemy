@@ -22,7 +22,6 @@ public class MovieMapper {
 
     public MovieEntity movieDTO2Entity(MovieDTO dto) {
         MovieEntity entity = new MovieEntity();
-        // if (dto.getId()!=null) entity.setId(dto.getId());
         entity.setImage(dto.getImage());
         entity.setTitle(dto.getTitle());
         entity.setCreationDate(this.string2LocalDate(dto.getCreationDate()));
@@ -34,7 +33,6 @@ public class MovieMapper {
         return entity;
     }
 
-    //
     public MovieDTO movieEntity2DTO(MovieEntity entity, boolean loadCharacters) {
 
         MovieDTO movieDTO = new MovieDTO();
@@ -66,7 +64,6 @@ public class MovieMapper {
         MovieBasicDTO basicDTO;
         for (MovieEntity entity: entities) {
             basicDTO= new MovieBasicDTO();
-            //basicDTO.setId(entity.getId());
             basicDTO.setCreationDate(entity.getCreationDate().toString());
             basicDTO.setImage(entity.getImage());
             basicDTO.setTitle(entity.getTitle());
