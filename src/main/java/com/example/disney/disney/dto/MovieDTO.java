@@ -20,7 +20,7 @@ public class MovieDTO {
 
     @NotBlank
     private String title;
-
+    //TODO:agregar comprobacion
     private String creationDate;
 
     @Positive

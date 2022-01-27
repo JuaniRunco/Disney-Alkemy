@@ -1,8 +1,8 @@
 package com.example.disney.disney.auth.controller;
 
-import com.example.disney.disney.auth.dto.AuthenticationRequest;
-import com.example.disney.disney.auth.dto.AuthenticationResponse;
-import com.example.disney.disney.auth.dto.UserDTO;
+import com.example.disney.disney.auth.repository.dto.AuthenticationRequest;
+import com.example.disney.disney.auth.repository.dto.AuthenticationResponse;
+import com.example.disney.disney.auth.repository.dto.UserDTO;
 import com.example.disney.disney.auth.service.JwtUtils;
 import com.example.disney.disney.auth.service.UserDetailsCustomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,6 @@ public class UserAuthController {
 
     /*TODO:
        Pasar a un service la logica del try catch
-       Manejar error si la contraseña es invalida
        */
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> singIn(@RequestBody AuthenticationRequest authRequest) throws Exception {

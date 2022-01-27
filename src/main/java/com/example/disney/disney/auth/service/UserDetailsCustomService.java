@@ -1,6 +1,6 @@
 package com.example.disney.disney.auth.service;
 
-import com.example.disney.disney.auth.dto.UserDTO;
+import com.example.disney.disney.auth.repository.dto.UserDTO;
 import com.example.disney.disney.auth.entity.UserEntity;
 import com.example.disney.disney.auth.repository.UserRepository;
 import com.example.disney.disney.service.EmailService;

@@ -1,4 +1,4 @@
-package com.example.disney.disney.auth.dto;
+package com.example.disney.disney.auth.repository.dto;
 
 import lombok.Getter;
 import lombok.Setter;
