@@ -1,4 +1,4 @@
-package com.example.disney.disney.auth.repository.dto;
+package com.example.disney.disney.auth.dto;
 
 import lombok.Data;
 
