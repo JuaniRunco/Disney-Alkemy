@@ -68,7 +68,6 @@ public class CharacterMapper {
         entity.setHistory(dto.getHistory());
     }
 
-
     public List<CharacterBasicDTO> characterEntityList2BasicDtoList(List<CharacterEntity> entities) {
         List<CharacterBasicDTO> dtos = new ArrayList<>();
         CharacterBasicDTO basicDTO;

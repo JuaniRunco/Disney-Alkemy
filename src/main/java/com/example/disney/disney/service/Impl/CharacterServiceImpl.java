@@ -39,13 +39,6 @@ public class CharacterServiceImpl implements CharacterService {
         return result;
     }
 
-    //Trae los datos basicos de /characters
-    public List<CharacterBasicDTO> getAllCharacterBasic() {
-        List<CharacterEntity> entities = characterRepository.findAll();
-        List<CharacterBasicDTO> result = characterMapper.characterEntityList2BasicDtoList(entities);
-        return result;
-    }
-
     //Para encontrar un solo personaje con /characters/id
     public CharacterDTO getCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
@@ -90,19 +83,10 @@ public class CharacterServiceImpl implements CharacterService {
         this.characterRepository.deleteById(id);
     }
 
-    /*public void addMovie (Long id, Long idMovie){
-        CharacterEntity entity = this.characterRepository.getById(id);
-        entity.getMovies().size();
-        MovieEntity movieEntity= this.movieService.getEntityById(idMovie);
-        entity.addMovie(movieEntity);
-        this.characterRepository.save(entity);
-    }*/
-
-    /*public void removeMovie (Long id, Long idMovie){
-        CharacterEntity entity = this.characterRepository.getById(id);
-        entity.getMovies().size();
-        MovieEntity movieEntity= this.movieService.getEntityById(idMovie);
-        entity.removeMovie(movieEntity);
-        this.characterRepository.save(entity);
-    }*/
+    //Trae los datos basicos de /characters
+    public List<CharacterBasicDTO> getAllCharacterBasic() {
+        List<CharacterEntity> entities = characterRepository.findAll();
+        List<CharacterBasicDTO> result = characterMapper.characterEntityList2BasicDtoList(entities);
+        return result;
+    }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.util.List;
 
@@ -15,14 +16,13 @@ import java.util.List;
 public class MovieDTO {
 
     private Long id;
-
+    @NotBlank
     private String image;
-
     @NotBlank
     private String title;
     //TODO:agregar comprobacion
+    @NotNull
     private String creationDate;
-
     @Positive
     @Max(value = 5)
     private Integer qualification;

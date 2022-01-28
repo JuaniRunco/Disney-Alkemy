@@ -68,11 +68,6 @@ public class MovieEntity {
         this.characters.remove(entity);
     }
 
-    /*@Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }*/
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null)

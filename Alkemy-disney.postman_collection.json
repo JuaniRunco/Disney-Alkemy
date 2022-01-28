@@ -1,0 +1,545 @@
+{
+	"info": {
+		"_postman_id": "c30f1d9a-d71d-4286-82b2-2ba32f1274ff",
+		"name": "Alkemy-disney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"jircmcabj@gmail.com\",\r\n    \"password\":\"password1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"juanirunco2@hotmail.com\",\r\n    \"password\":\"password2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "3.characters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/characters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.characters?idMovie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/Thor.png\",\r\n    \"name\": \"Thor\",\r\n    \"age\": 43,\r\n    \"weight\": 86.7,\r\n    \"history\": \"Thor era uno de los dioses nórdicos más conocidos. Era el más fuerte de los dioses, protegía a la juventud, al rayo, al fuego y a la arquitectura. Era hijo del dios Odín y Jörd. Siempre se le representa con un martillo en la mano, su arma.\",\r\n    \"movies\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/characters?idMovie=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					],
+					"query": [
+						{
+							"key": "idMovie",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.characters/id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/Thor.png\",\r\n    \"name\": \"Thor\",\r\n    \"age\": 42,\r\n    \"weight\": 88,\r\n    \"history\": \"Thor era uno de los dioses nórdicos más conocidos. Era el más fuerte de los dioses, protegía a la juventud, al rayo, al fuego y a la arquitectura. Era hijo del dios Odín y Jörd. Siempre se le representa con un martillo en la mano, su arma.\",\r\n    \"movies\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/characters/46",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.characters",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/characters/50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"50"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.characters/id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/characters/40",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.characters?filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/characters?name=t&weight=88&movies=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "t"
+						},
+						{
+							"key": "age",
+							"value": "40",
+							"disabled": true
+						},
+						{
+							"key": "weight",
+							"value": "88"
+						},
+						{
+							"key": "movies",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.movies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.movies/id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies/48",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.movies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/TheSimpsons.png\",\r\n    \"title\": \"The Simpsons\",\r\n    \"creationDate\": \"2005-03-16\",\r\n    \"qualification\": 5,\r\n    \"genreId\": 5,\r\n    \"characters\": [\r\n        {\r\n            \"image\": \"/usr/tmp/Homero.png\",\r\n            \"name\": \"Homero\",\r\n            \"age\": 45,\r\n            \"weight\": 105,\r\n            \"history\": \"Homer es el primer y único hijo legítimo de Abraham Simpson y de Mona J. Simpson. Está casado con Marjorie Bouvier y es el padre de Bartholomew (Bart), Lisa y Margaret (Maggie).\"\r\n        },\r\n        {\r\n            \"image\": \"/usr/tmp/Marge.png\",\r\n            \"name\": \"Marge\",\r\n            \"age\": 43,\r\n            \"weight\": 45,\r\n            \"history\": \"es un personaje ficticio de la serie de televisión de dibujos animados Los Simpson. Es la esposa de Homer Simpson y madre de los tres hijos que ha tenido de este matrimonio: Bart, Lisa y Maggie.\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.movies/id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 48,\r\n    \"image\": \"/usr/tmp/TheSimpsons.png\",\r\n    \"title\": \"The Simpsons\",\r\n    \"creationDate\": \"2006-08-20\",\r\n    \"qualification\": 5,\r\n    \"genreId\": 5,\r\n    \"characters\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/movies/48",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.movies",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies/47",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.movies?filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies?title=The&order=DESC&genre=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "The"
+						},
+						{
+							"key": "order",
+							"value": "DESC"
+						},
+						{
+							"key": "genre",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movies/id/character/idCharacter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies/41/character/51",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"41",
+						"character",
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movies/id/character/idCharacter Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/movies/48/character/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"48",
+						"character",
+						"49"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

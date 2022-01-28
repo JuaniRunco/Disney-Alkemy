@@ -110,15 +110,4 @@ public class MovieServiceImpl implements MovieService {
         this.movieRepository.deleteById(id);
     }
 
-  /*  //Para agregar una lista de characters a una movie
-    public void addCharacterList(Long idMovie, Set<Long> charactersId) {
-        MovieEntity entity = getEntityById(idMovie);
-        Set<CharacterEntity> movieCharacters = entity.getCharacters();
-        for (Long id : charactersId) {
-            movieCharacters.add(characterService.getEntityById(id));
-        }
-        entity.setCharacters(movieCharacters);
-        movieRepository.save(entity);
-    }*/
-
 }

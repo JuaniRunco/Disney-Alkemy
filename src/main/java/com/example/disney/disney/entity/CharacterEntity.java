@@ -40,11 +40,6 @@ public class CharacterEntity {
             })
     private List<MovieEntity> movies = new ArrayList<>();
 
-   /* @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }*/
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
