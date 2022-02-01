@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Getter
@@ -21,7 +18,7 @@ public class MovieDTO {
     @NotBlank
     private String title;
     //TODO:agregar comprobacion
-    @NotNull
+    @NotBlank(message = "It cannot be null or empty, remember to enter date format 'yyyy-MM-dd'")
     private String creationDate;
     @Positive
     @Max(value = 5)

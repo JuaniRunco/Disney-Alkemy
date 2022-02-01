@@ -59,10 +59,11 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     public CharacterEntity getEntityById(Long id) {
-        if (!characterRepository.existsById(id)){
+        Optional<CharacterEntity> entity= characterRepository.findById(id);
+        if (!entity.isPresent()){
             throw new ParamNotFound("Character id not found");
         }
-        return characterRepository.getById(id);
+        return entity.get();
     }
 
     public CharacterDTO update(Long id, CharacterDTO dto) {

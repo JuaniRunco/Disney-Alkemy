@@ -47,7 +47,7 @@ public class CharacterController {
 
     //Update by character id
     @PutMapping("/{id}")
-    public ResponseEntity<CharacterDTO> update(@PathVariable Long id, @RequestBody CharacterDTO dto) {
+    public ResponseEntity<CharacterDTO> update(@Valid @PathVariable Long id, @RequestBody CharacterDTO dto) {
         CharacterDTO result = this.characterService.update(id, dto);
         return ResponseEntity.ok().body(result);
     }
@@ -55,7 +55,6 @@ public class CharacterController {
     //Delete by character id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-
         this.characterService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
