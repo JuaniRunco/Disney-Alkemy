@@ -1,4 +1,4 @@
-package com.example.disney.disney.service.Impl;
+package com.example.disney.disney.service.impl;
 
 import com.example.disney.disney.service.EmailService;
 import com.sendgrid.Method;

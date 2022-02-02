@@ -1,4 +1,4 @@
-package com.example.disney.disney.service.Impl;
+package com.example.disney.disney.service.impl;
 
 import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
 import com.example.disney.disney.dto.CharacterDTO;
