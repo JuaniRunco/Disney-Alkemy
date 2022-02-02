@@ -10,9 +10,12 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,4 +59,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         String bodyOfResponse= "This should be application specific";
         return handleExceptionInternal(ex,bodyOfResponse, new HttpHeaders(),HttpStatus.CONFLICT,request);
     }
+
+/*    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({Exception.class})
+    @ResponseBody
+    public ResponseEntity<Object> fatalErrorUnexpectedException(HttpServletRequest request, Exception exception){
+        return new ResponseEntity<Object>(exception, HttpStatus.valueOf(request.getRequestURI()));
+    }*/
 }

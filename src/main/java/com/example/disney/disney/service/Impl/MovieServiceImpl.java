@@ -1,5 +1,6 @@
 package com.example.disney.disney.service.Impl;
 
+import com.example.disney.disney.Enum.MovieNotFound;
 import com.example.disney.disney.dto.BasicDTO.MovieBasicDTO;
 import com.example.disney.disney.dto.FiltersDTO.MovieFiltersDTO;
 import com.example.disney.disney.dto.MovieDTO;
@@ -47,7 +48,7 @@ public class MovieServiceImpl implements MovieService {
     public MovieDTO getMovieById(Long id) {
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new ParamNotFound("Movie id not found");
+            throw new ParamNotFound(MovieNotFound.IdMovie.getDescription());
         }
         return movieMapper.movieEntity2DTO(entity.get(), true);
     }
@@ -56,7 +57,7 @@ public class MovieServiceImpl implements MovieService {
     public MovieEntity getEntityById(Long id) {
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new ParamNotFound("Movie id not found");
+            throw new ParamNotFound(MovieNotFound.IdMovie.getDescription());
         }
         return entity.get();
     }
@@ -66,7 +67,7 @@ public class MovieServiceImpl implements MovieService {
         MovieFiltersDTO filtersDTO = new MovieFiltersDTO(title, genre, order);
         List<MovieEntity> entities = this.movieRepository.findAll(this.movieSpecification.getByFilters(filtersDTO));
         if (entities.isEmpty()){
-                throw new ParamNotFound("No movie found with the indicated parameters");
+                throw new ParamNotFound(MovieNotFound.FilterCharacter.getDescription());
          }
         List<MovieBasicDTO> dtos = this.movieMapper.movieEntityList2BasicDTOList(entities);
         return dtos;
@@ -76,7 +77,7 @@ public class MovieServiceImpl implements MovieService {
     public MovieDTO update(Long id, MovieDTO dto) {
         Optional<MovieEntity> entity = this.movieRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new ParamNotFound("Movie id not found");
+            throw new ParamNotFound(MovieNotFound.IdMovie.getDescription());
         }
         this.movieMapper.movieEntityRefreshValues(entity.get(), dto);
         MovieEntity entitySaved = this.movieRepository.save(entity.get());
@@ -105,7 +106,7 @@ public class MovieServiceImpl implements MovieService {
     //Para borrar la movie
     public void delete(Long id) {
         if (!movieRepository.existsById(id)) {
-            throw new ParamNotFound("Movie id not found");
+            throw new ParamNotFound(MovieNotFound.IdMovie.getDescription());
         }
         this.movieRepository.deleteById(id);
     }
