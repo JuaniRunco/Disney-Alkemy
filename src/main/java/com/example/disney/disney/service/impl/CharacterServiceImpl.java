@@ -1,5 +1,6 @@
 package com.example.disney.disney.service.impl;
 
+import com.example.disney.disney.Enum.CharacterNotFound;
 import com.example.disney.disney.dto.BasicDTO.CharacterBasicDTO;
 import com.example.disney.disney.dto.CharacterDTO;
 import com.example.disney.disney.dto.FiltersDTO.CharacterFiltersDTO;
@@ -43,7 +44,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO getCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if (!entity.isPresent()){
-            throw new ParamNotFound("Character id not found");
+            throw new ParamNotFound(CharacterNotFound.IdCharacter.getDescription());
         }
         return characterMapper.characterEntity2DTO(entity.get(), true);
     }
@@ -52,7 +53,7 @@ public class CharacterServiceImpl implements CharacterService {
         CharacterFiltersDTO filtersDTO = new CharacterFiltersDTO(name, age, weight, movies);
         List<CharacterEntity> entities = this.characterRepository.findAll(this.characterSpecification.getByFilters(filtersDTO));
         if (entities.isEmpty()){
-            throw new ParamNotFound("No character found with the indicated parameters");
+            throw new ParamNotFound(CharacterNotFound.FilterCharacter.getDescription());
         }
         List<CharacterBasicDTO> dtos = this.characterMapper.characterEntityList2BasicDtoList(entities);
         return dtos;
@@ -61,7 +62,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterEntity getEntityById(Long id) {
         Optional<CharacterEntity> entity= characterRepository.findById(id);
         if (!entity.isPresent()){
-            throw new ParamNotFound("Character id not found");
+            throw new ParamNotFound(CharacterNotFound.IdCharacter.getDescription());
         }
         return entity.get();
     }
@@ -69,7 +70,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO update(Long id, CharacterDTO dto) {
         Optional<CharacterEntity> entity = this.characterRepository.findById(id);
         if (!entity.isPresent()) {
-            throw new ParamNotFound("Character id not found");
+            throw new ParamNotFound(CharacterNotFound.IdCharacter.getDescription());
         }
         this.characterMapper.characterEntityRefreshValues(entity.get(), dto);
         CharacterEntity entitySaved = this.characterRepository.save(entity.get());
@@ -79,7 +80,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     public void delete(Long id) {
         if (!characterRepository.existsById(id)){
-            throw new ParamNotFound("Character id not found");
+            throw new ParamNotFound(CharacterNotFound.IdCharacter.getDescription());
         }
         this.characterRepository.deleteById(id);
     }
