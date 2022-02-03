@@ -17,7 +17,6 @@ public class MovieDTO {
     private String image;
     @NotBlank
     private String title;
-    //TODO:agregar comprobacion
     @NotBlank(message = "It cannot be null or empty, remember to enter date format 'yyyy-MM-dd'")
     private String creationDate;
     @Positive
@@ -25,7 +24,7 @@ public class MovieDTO {
     private Integer qualification;
 
     private GenreDTO genre;
-
+    @NotNull
     private Long genreId;
 
     private List<CharacterDTO> characters;
