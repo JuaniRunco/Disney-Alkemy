@@ -44,10 +44,6 @@ public class EmailServiceImp implements EmailService {
             request.setBody(mail.build());
             Response response = sendGrid.api(request);
 
-/*            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());*/
-
         } catch (IOException ex) {
             System.out.println("Email sending error");
         }

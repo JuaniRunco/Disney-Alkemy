@@ -80,7 +80,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
@@ -99,19 +99,19 @@
 			"response": []
 		},
 		{
-			"name": "4.characters?idMovie",
+			"name": "4.characters",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image\": \"/usr/tmp/Thor.png\",\r\n    \"name\": \"Thor\",\r\n    \"age\": 43,\r\n    \"weight\": 86.7,\r\n    \"history\": \"Thor era uno de los dioses nórdicos más conocidos. Era el más fuerte de los dioses, protegía a la juventud, al rayo, al fuego y a la arquitectura. Era hijo del dios Odín y Jörd. Siempre se le representa con un martillo en la mano, su arma.\",\r\n    \"movies\": []\r\n}",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/Diego.png\",\r\n    \"name\": \"Diego\",\r\n    \"age\": 15,\r\n    \"weight\": 38,\r\n    \"history\": \"Diego es un tigre dientes de sable (comúnmente conocido como tigre dientes de sable), las características más distintivas son sus largos dientes caninos, mechones de pelo en las patillas y una cola corta.\",\r\n    \"movies\": []\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,7 +119,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/characters?idMovie=20",
+					"raw": "http://localhost:8080/characters?idMovie=76",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -131,7 +131,7 @@
 					"query": [
 						{
 							"key": "idMovie",
-							"value": "20"
+							"value": "76"
 						}
 					]
 				}
@@ -139,19 +139,19 @@
 			"response": []
 		},
 		{
-			"name": "4.characters/id",
+			"name": "4.characters",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image\": \"/usr/tmp/Thor.png\",\r\n    \"name\": \"Thor\",\r\n    \"age\": 42,\r\n    \"weight\": 88,\r\n    \"history\": \"Thor era uno de los dioses nórdicos más conocidos. Era el más fuerte de los dioses, protegía a la juventud, al rayo, al fuego y a la arquitectura. Era hijo del dios Odín y Jörd. Siempre se le representa con un martillo en la mano, su arma.\",\r\n    \"movies\": []\r\n}",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/Mamut.png\",\r\n    \"name\": \"Manny\",\r\n    \"age\": 125,\r\n    \"weight\": 200,\r\n    \"history\": \"Manfred Manny es un mamut lanudo, en todas las películas de Ice Age. Su personalidad se muestra distante y gruñona, pero por lo demás es cariñosa y valiente\",\r\n    \"movies\": []\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -159,7 +159,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/characters/46",
+					"raw": "http://localhost:8080/characters/77",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -167,7 +167,7 @@
 					"port": "8080",
 					"path": [
 						"characters",
-						"46"
+						"77"
 					]
 				}
 			},
@@ -180,12 +180,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/characters/50",
+					"raw": "http://localhost:8080/characters/87",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -193,7 +193,7 @@
 					"port": "8080",
 					"path": [
 						"characters",
-						"50"
+						"87"
 					],
 					"query": [
 						{
@@ -216,7 +216,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
@@ -230,7 +230,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/characters/40",
+					"raw": "http://localhost:8080/characters/42",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -238,7 +238,7 @@
 					"port": "8080",
 					"path": [
 						"characters",
-						"40"
+						"42"
 					]
 				}
 			},
@@ -254,7 +254,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
@@ -268,7 +268,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/characters?name=t&weight=88&movies=20",
+					"raw": "http://localhost:8080/characters?name=h&weight=105",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -280,7 +280,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "t"
+							"value": "h"
 						},
 						{
 							"key": "age",
@@ -289,11 +289,12 @@
 						},
 						{
 							"key": "weight",
-							"value": "88"
+							"value": "105"
 						},
 						{
 							"key": "movies",
-							"value": "20"
+							"value": "20",
+							"disabled": true
 						}
 					]
 				}
@@ -307,7 +308,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
@@ -332,12 +333,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/movies/48",
+					"raw": "http://localhost:8080/movies/76",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -345,7 +346,7 @@
 					"port": "8080",
 					"path": [
 						"movies",
-						"48"
+						"76"
 					]
 				}
 			},
@@ -358,13 +359,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image\": \"/usr/tmp/TheSimpsons.png\",\r\n    \"title\": \"The Simpsons\",\r\n    \"creationDate\": \"2005-03-16\",\r\n    \"qualification\": 5,\r\n    \"genreId\": 5,\r\n    \"characters\": [\r\n        {\r\n            \"image\": \"/usr/tmp/Homero.png\",\r\n            \"name\": \"Homero\",\r\n            \"age\": 45,\r\n            \"weight\": 105,\r\n            \"history\": \"Homer es el primer y único hijo legítimo de Abraham Simpson y de Mona J. Simpson. Está casado con Marjorie Bouvier y es el padre de Bartholomew (Bart), Lisa y Margaret (Maggie).\"\r\n        },\r\n        {\r\n            \"image\": \"/usr/tmp/Marge.png\",\r\n            \"name\": \"Marge\",\r\n            \"age\": 43,\r\n            \"weight\": 45,\r\n            \"history\": \"es un personaje ficticio de la serie de televisión de dibujos animados Los Simpson. Es la esposa de Homer Simpson y madre de los tres hijos que ha tenido de este matrimonio: Bart, Lisa y Maggie.\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/LaEraDeHielo.png\",\r\n    \"title\": \"La Era de Hielo\",\r\n    \"creationDate\": \"2002-06-29\",\r\n    \"qualification\": 4,\r\n    \"genreId\": 6,\r\n    \"characters\": [\r\n        {\r\n            \"image\": \"/usr/tmp/Manny.png\",\r\n            \"name\": \"Manny\",\r\n            \"age\": 125,\r\n            \"weight\":  200,\r\n            \"history\": \"Manfred Manny es un mamut lanudo, en todas las películas de Ice Age. Su personalidad se muestra distante y gruñona, pero por lo demás es cariñosa y valiente\"\r\n        },\r\n        {\r\n            \"image\": \"/usr/tmp/Sid.png\",\r\n            \"name\": \"Sid\",\r\n            \"age\": 8,\r\n            \"weight\": 32,\r\n            \"history\": \"Sid es un perezoso cabeza de huevo, personaje de la saga animada La era del hielo, que hace su primera aparición en Ice Age\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -386,19 +387,19 @@
 			"response": []
 		},
 		{
-			"name": "9.movies/id",
+			"name": "9.movies",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 48,\r\n    \"image\": \"/usr/tmp/TheSimpsons.png\",\r\n    \"title\": \"The Simpsons\",\r\n    \"creationDate\": \"2006-08-20\",\r\n    \"qualification\": 5,\r\n    \"genreId\": 5,\r\n    \"characters\": []\r\n}",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/LaEradeHielo.jpg\",\r\n    \"title\": \"La Era de Hielo\",\r\n    \"creationDate\": \"2002-06-29\",\r\n    \"qualification\": 3,\r\n    \"genreId\": 6,\r\n    \"characters\": [ ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -406,7 +407,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/movies/48",
+					"raw": "http://localhost:8080/movies/76",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -414,7 +415,7 @@
 					"port": "8080",
 					"path": [
 						"movies",
-						"48"
+						"76"
 					]
 				}
 			},
@@ -427,12 +428,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/movies/47",
+					"raw": "http://localhost:8080/movies/86",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -440,7 +441,7 @@
 					"port": "8080",
 					"path": [
 						"movies",
-						"47"
+						"86"
 					]
 				}
 			},
@@ -453,12 +454,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/movies?title=The&order=DESC&genre=1",
+					"raw": "http://localhost:8080/movies?title=The&order=DESC&genre=5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -478,7 +479,7 @@
 						},
 						{
 							"key": "genre",
-							"value": "1"
+							"value": "5"
 						}
 					]
 				}
@@ -492,12 +493,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/movies/41/character/51",
+					"raw": "http://localhost:8080/movies/76/character/51",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -505,7 +506,7 @@
 					"port": "8080",
 					"path": [
 						"movies",
-						"41",
+						"76",
 						"character",
 						"51"
 					]
@@ -520,12 +521,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzM0MzgxMCwiaWF0IjoxNjQzMzA3ODEwfQ.HCiCW-nUTtSrAZxrQyltlqLgmN4cQTw6Dg1n0W5lggQ",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/movies/48/character/49",
+					"raw": "http://localhost:8080/movies/76/character/51",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -533,9 +534,68 @@
 					"port": "8080",
 					"path": [
 						"movies",
-						"48",
+						"76",
 						"character",
-						"49"
+						"51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "genres",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image\": \"/usr/tmp/Drama.png\",\r\n    \"name\": \"Drama\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "genres",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuaXJ1bmNvMkBob3RtYWlsLmNvbSIsImV4cCI6MTY0MzkzNTEwNCwiaWF0IjoxNjQzODk5MTA0fQ.sTo6jCuIeaSU2iqRihPP7AD12it6wGP9Olj1yHBMC_8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
 					]
 				}
 			},

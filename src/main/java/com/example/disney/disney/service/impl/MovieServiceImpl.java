@@ -37,14 +37,12 @@ public class MovieServiceImpl implements MovieService {
         return this.movieMapper.movieEntity2DTO(entitySaved, true);
     }
 
-    //Trae los datos basicos de /movies
     public List<MovieBasicDTO> getAllMoviesBasic() {
         List<MovieEntity> entities = this.movieRepository.findAll();
         List<MovieBasicDTO> result = this.movieMapper.movieEntityList2BasicDTOList(entities);
         return result;
     }
 
-    //Para encontrar una movie con /movies/id
     public MovieDTO getMovieById(Long id) {
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if (!entity.isPresent()) {
@@ -53,7 +51,6 @@ public class MovieServiceImpl implements MovieService {
         return movieMapper.movieEntity2DTO(entity.get(), true);
     }
 
-    //Para encontrar una movieEntity
     public MovieEntity getEntityById(Long id) {
         Optional<MovieEntity> entity = movieRepository.findById(id);
         if (!entity.isPresent()) {
@@ -62,7 +59,6 @@ public class MovieServiceImpl implements MovieService {
         return entity.get();
     }
 
-    //Para filtrar la movie por title, genre y ordenarla por creationDate
     public List<MovieBasicDTO> getByFilters(String title, Long genre, String order) {
         MovieFiltersDTO filtersDTO = new MovieFiltersDTO(title, genre, order);
         List<MovieEntity> entities = this.movieRepository.findAll(this.movieSpecification.getByFilters(filtersDTO));
@@ -73,7 +69,6 @@ public class MovieServiceImpl implements MovieService {
         return dtos;
     }
 
-    //Para actualizar una movieDTO por su id
     public MovieDTO update(Long id, MovieDTO dto) {
         Optional<MovieEntity> entity = this.movieRepository.findById(id);
         if (!entity.isPresent()) {
@@ -85,7 +80,6 @@ public class MovieServiceImpl implements MovieService {
         return result;
     }
 
-    //Para agregar un character a una Movie
     public void addCharacter(Long idMovie, Long idCharacter) {
         MovieEntity movie = getEntityById(idMovie);
         Set<CharacterEntity> entities = movie.getCharacters();
@@ -94,7 +88,6 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.save(movie);
     }
 
-    //Para eliminar un character a una Movie
     public void removeCharacter(Long idMovie, Long idCharacter){
         MovieEntity movie= getEntityById(idMovie);
         Set<CharacterEntity> entities=movie.getCharacters();
@@ -103,7 +96,6 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.save(movie);
     }
 
-    //Para borrar la movie
     public void delete(Long id) {
         if (!movieRepository.existsById(id)) {
             throw new ParamNotFound(MovieNotFound.IdMovie.getDescription());

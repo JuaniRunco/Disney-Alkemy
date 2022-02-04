@@ -40,7 +40,6 @@ public class CharacterServiceImpl implements CharacterService {
         return result;
     }
 
-    //Para encontrar un solo personaje con /characters/id
     public CharacterDTO getCharacterById(Long id) {
         Optional<CharacterEntity> entity = characterRepository.findById(id);
         if (!entity.isPresent()){
@@ -85,7 +84,6 @@ public class CharacterServiceImpl implements CharacterService {
         this.characterRepository.deleteById(id);
     }
 
-    //Trae los datos basicos de /characters
     public List<CharacterBasicDTO> getAllCharacterBasic() {
         List<CharacterEntity> entities = characterRepository.findAll();
         List<CharacterBasicDTO> result = characterMapper.characterEntityList2BasicDtoList(entities);
